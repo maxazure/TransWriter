@@ -438,6 +438,7 @@ namespace TransWriter
                     // 关闭窗口
                     this.Close();
                     SendKeys.Send("^v");
+                    //KeyboardSimulator.SendKeyCombo(new ushort[] { 0x11 }, 0x56);
                 }
                 else
                 {
