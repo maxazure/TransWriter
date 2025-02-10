@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maxaz\\projects\\TransWriter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|C:\\Users\\maxaz\\projects\\TransWriter\\transwriter\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\transwriter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\transwriter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\transwriter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\transwriter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|c:\\users\\maxaz\\projects\\transwriter\\transwriter\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C749202D-0AB2-4166-8230-C50FA36E4827}|TransWriter\\TransWriter.csproj|solutionrelative:transwriter\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\Program.cs",
+              "RelativeDocumentMoniker": "TransWriter\\Program.cs",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\Program.cs",
+              "RelativeToolTip": "TransWriter\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T00:41:09.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TransWriter",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\TransWriter.csproj",
+              "RelativeDocumentMoniker": "TransWriter\\TransWriter.csproj",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\TransWriter.csproj",
+              "RelativeToolTip": "TransWriter\\TransWriter.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-10T00:06:13.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransWriter.csproj",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\TransWriter.csproj",
+              "RelativeDocumentMoniker": "TransWriter\\TransWriter.csproj",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\TransWriter.csproj",
+              "RelativeToolTip": "TransWriter\\TransWriter.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-09T21:46:51.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SettingsForm.cs",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\SettingsForm.cs",
+              "RelativeDocumentMoniker": "TransWriter\\SettingsForm.cs",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\SettingsForm.cs",
+              "RelativeToolTip": "TransWriter\\SettingsForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T21:50:27.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SettingsForm.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\SettingsForm.cs",
+              "RelativeDocumentMoniker": "TransWriter\\SettingsForm.cs",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\SettingsForm.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "TransWriter\\SettingsForm.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T21:49:48.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "TransWriter\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\MainForm.Designer.cs",
+              "RelativeToolTip": "TransWriter\\MainForm.Designer.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAawDQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T10:11:29.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\MainForm.cs",
+              "RelativeDocumentMoniker": "TransWriter\\MainForm.cs",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\MainForm.cs",
+              "RelativeToolTip": "TransWriter\\MainForm.cs",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAuwBcBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T09:25:27.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\MainForm.cs",
+              "RelativeDocumentMoniker": "TransWriter\\MainForm.cs",
+              "ToolTip": "C:\\Users\\maxaz\\projects\\TransWriter\\TransWriter\\MainForm.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "TransWriter\\MainForm.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T09:20:38.591Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
