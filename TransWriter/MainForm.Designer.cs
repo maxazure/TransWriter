@@ -54,9 +54,9 @@
             labPlaceHolder.ForeColor = SystemColors.GrayText;
             labPlaceHolder.Location = new Point(213, 71);
             labPlaceHolder.Name = "labPlaceHolder";
-            labPlaceHolder.Size = new Size(292, 96);
+            labPlaceHolder.Size = new Size(344, 96);
             labPlaceHolder.TabIndex = 6;
-            labPlaceHolder.Text = "按 Ctrl  +回车 快速翻译\r\n按 Shift +退格 查看原文\r\n按 Shift +空格  随时呼出程序\r\n快速 按 Ctrl  +回车 两次  退出程序 ";
+            labPlaceHolder.Text = "按 Ctrl  +回车 快速翻译\r\n第二次按 Ctrl  +回车 退出程序并粘贴文字\r\n按 Shift +退格 查看原文\r\n按 Shift +空格  随时呼出程序\r\n";
             // 
             // TransForm
             // 

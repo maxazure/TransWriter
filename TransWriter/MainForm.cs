@@ -23,6 +23,7 @@ namespace TransWriter
 
         private int ctrlEnterCount = 0;
         private DateTime lastCtrlEnterTime;
+        private string OldOriginalText = "";
 
         public TransForm()
         {
@@ -124,6 +125,8 @@ namespace TransWriter
 
 							// 保存原文和译文到本地数据库
 							SaveTranslationToDatabase(originalText, translatedText);
+                            OldOriginalText = translatedText;
+                           
                         }
                         else
                         {
@@ -422,25 +425,15 @@ namespace TransWriter
             {
                 // 防止在文本框中插入换行
                 e.SuppressKeyPress = true;
-
-                // 检查是否在短时间内连续按下两次 Ctrl + Enter
-                if ((DateTime.Now - lastCtrlEnterTime).TotalMilliseconds < 500)
-                {
-                    ctrlEnterCount++;
-                }
-                else
-                {
-                    ctrlEnterCount = 1;
-                }
+                ctrlEnterCount++;
+                // 检查是否按下两次 Ctrl + Enter
 
                 lastCtrlEnterTime = DateTime.Now;
 
-                if (ctrlEnterCount == 2)
+                if (ctrlEnterCount > 1 && OriginalText.Text == OldOriginalText)
                 {
                     // 重置计数器
                     ctrlEnterCount = 0;
-
-                    OriginalText.Clear();
 
                     // 关闭窗口
                     this.Close();
@@ -451,6 +444,7 @@ namespace TransWriter
                     // 执行按钮点击事件
                     btnTranslate_Click(sender, e);
                 }
+             
             }
             // 判断是否同时按下 Ctrl 和 Backspace
             else if (e.Shift && e.KeyCode == Keys.Back)
