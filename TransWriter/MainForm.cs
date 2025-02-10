@@ -102,7 +102,7 @@ namespace TransWriter
                 try
                 {
                     var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-                    var response = await client.PostAsync("https://api.groq.com/openai/v1/chat/completions", content);
+                    var response = await client.PostAsync("https://api.groq.com/openai/v1/chat/completions?translation", content);
                     response.EnsureSuccessStatusCode();
 
                     string responseContent = await response.Content.ReadAsStringAsync();
