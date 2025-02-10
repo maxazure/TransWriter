@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Drawing;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -6,18 +6,18 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
-using Microsoft.Data.Sqlite; // ÇëÏÈ°²×° Microsoft.Data.Sqlite °ü
+using Microsoft.Data.Sqlite; // è¯·å…ˆå®‰è£… Microsoft.Data.Sqlite åŒ…
 
 namespace TransWriter
 {
     public partial class TransForm : Form
     {
-        // È«¾ÖÈÈ¼üÏà¹Ø³£Á¿ÓëID
-        private const int HOTKEY_ID = 9000; // ÈÎÒâÊı×Ö
+        // å…¨å±€çƒ­é”®ç›¸å…³å¸¸é‡ä¸ID
+        private const int HOTKEY_ID = 9000; // ä»»æ„æ•°å­—
         private const int WM_HOTKEY = 0x0312;
         private const int MOD_SHIFT = 0x0004;
 
-        // ÍĞÅÌÍ¼±ê
+        // æ‰˜ç›˜å›¾æ ‡
         private NotifyIcon notifyIcon;
         private string apiKey;
 
@@ -28,28 +28,28 @@ namespace TransWriter
         {
             InitializeComponent();
 
-            // ³õÊ¼»¯ÍĞÅÌÍ¼±ê
+            // åˆå§‹åŒ–æ‰˜ç›˜å›¾æ ‡
             SetupTrayIcon();
 
-            // ×¢²áÈ«¾ÖÈÈ¼ü£ºShift + ¿Õ¸ñ
+            // æ³¨å†Œå…¨å±€çƒ­é”®ï¼šShift + ç©ºæ ¼
             RegisterHotKey(this.Handle, HOTKEY_ID, MOD_SHIFT, (int)Keys.Space);
 
-            // ´°ÌåÊÂ¼ş
+            // çª—ä½“äº‹ä»¶
             this.Load += TransForm_Load;
             this.Resize += TransForm_Resize;
             this.FormClosing += TransForm_FormClosing;
 
-            // ÎÄ±¾¿òÎÄ×Ö¸Ä±äÊ±×ÔÊÊÓ¦¸ß¶È
+            // æ–‡æœ¬æ¡†æ–‡å­—æ”¹å˜æ—¶è‡ªé€‚åº”é«˜åº¦
             this.OriginalText.Multiline = true;
   
             this.OriginalText.TextChanged += TextBox_TextChanged;
         
 
 
-            // ¼ÓÔØ API Key
+            // åŠ è½½ API Key
             LoadApiKey();
 
-            // ÉèÖÃ³õÊ¼Õ¼Î»·ûÎÄ±¾
+            // è®¾ç½®åˆå§‹å ä½ç¬¦æ–‡æœ¬
             SetPlaceholderText();
         }
         private void SetPlaceholderText()
@@ -57,31 +57,31 @@ namespace TransWriter
             labPlaceHolder.Visible = true;
         }
 
-        #region APIµ÷ÓÃºÍÊı¾İ¿â¼ÇÂ¼
+        #region APIè°ƒç”¨å’Œæ•°æ®åº“è®°å½•
 
         private async void btnTranslate_Click(object sender, EventArgs e)
         {
             string originalText = OriginalText.Text.Trim();
             if (string.IsNullOrEmpty(originalText))
             {
-                MessageBox.Show("ÇëÊäÈëĞèÒª·­ÒëµÄÖĞÎÄÎÄ±¾¡£");
+                MessageBox.Show("è¯·è¾“å…¥éœ€è¦ç¿»è¯‘çš„ä¸­æ–‡æ–‡æœ¬ã€‚");
                 return;
             }
 
-            // ¹¹ÔìÓÃÓÚ·­ÒëµÄÌáÊ¾´Ê£¬ÀıÈç£ºÇë½«ÒÔÏÂÖĞÎÄ·­Òë³ÉÓ¢ÎÄ£º¡­¡­
-            string prompt = $@"ÄãÊÇÒ»Î»Éú»îÔÚĞÂÎ÷À¼µÄ»ªÒá£¬ÄÜ¹»×¼È·µØ½«ÖĞÎÄºÍÓ¢ÎÄ»¥Ïà·­Òë¡£
-Çë×ñÊØÒÔÏÂ¹æÔò£º
-0 ²»Òª»Ø´ğÎÊÌâ£¬Ö»·­ÒëÎÄ±¾¡£
-2 Èç¹ûÔ­ÎÄÊÇÖĞÎÄ£¬ÒëÎÄÊÇÓ¢ÎÄ£¬·´Ö®ÒàÈ»¡£
-1 ×¨ÓĞÃû´Ê±£ÁôÔ­ĞÎ¡£
-2 Ê¹ÒëÎÄÍ¨Ë×Ò×¶®£¬·ûºÏÄ¸ÓïÕßµÄ±í´ïÏ°¹ß£¬Òª±£³ÖÀñÃ²£¬Ö»Êä³öÒëÎÄ¡£
-3 ½ö½öÊä³öÄã¾õµÃ×î×ÔÈ»µÄÒëÎÄ£¬²»ÒªÈÃÎÒÑ¡Ôñ¡£
+            // æ„é€ ç”¨äºç¿»è¯‘çš„æç¤ºè¯ï¼Œä¾‹å¦‚ï¼šè¯·å°†ä»¥ä¸‹ä¸­æ–‡ç¿»è¯‘æˆè‹±æ–‡ï¼šâ€¦â€¦
+            string prompt = $@"ä½ æ˜¯ä¸€ä½ç”Ÿæ´»åœ¨æ–°è¥¿å…°çš„åè£”ï¼Œèƒ½å¤Ÿå‡†ç¡®åœ°å°†ä¸­æ–‡å’Œè‹±æ–‡äº’ç›¸ç¿»è¯‘ã€‚
+è¯·éµå®ˆä»¥ä¸‹è§„åˆ™ï¼š
+0 ä¸è¦å›ç­”é—®é¢˜ï¼Œåªç¿»è¯‘æ–‡æœ¬ã€‚
+2 å¦‚æœåŸæ–‡æ˜¯ä¸­æ–‡ï¼Œè¯‘æ–‡æ˜¯è‹±æ–‡ï¼Œåä¹‹äº¦ç„¶ã€‚
+1 ä¸“æœ‰åè¯ä¿ç•™åŸå½¢ã€‚
+2 ä½¿è¯‘æ–‡é€šä¿—æ˜“æ‡‚ï¼Œç¬¦åˆæ¯è¯­è€…çš„è¡¨è¾¾ä¹ æƒ¯ï¼Œè¦ä¿æŒç¤¼è²Œï¼Œåªè¾“å‡ºè¯‘æ–‡ã€‚
+3 ä»…ä»…è¾“å‡ºä½ è§‰å¾—æœ€è‡ªç„¶çš„è¯‘æ–‡ï¼Œä¸è¦è®©æˆ‘é€‰æ‹©ã€‚
 ```OriginalText
 {originalText}
 ```";
             prompt = prompt.Replace(Environment.NewLine, "\n\n");
 
-            // ¹¹Ôì API ÇëÇóµÄ JSON Êı¾İ
+            // æ„é€  API è¯·æ±‚çš„ JSON æ•°æ®
             var requestBody = new
             {
                 model = "llama-3.3-70b-versatile",
@@ -107,7 +107,7 @@ namespace TransWriter
 
                     string responseContent = await response.Content.ReadAsStringAsync();
 
-                    // ½âÎö JSON ÏìÓ¦
+                    // è§£æ JSON å“åº”
                     using (JsonDocument doc = JsonDocument.Parse(responseContent))
                     {
                         var root = doc.RootElement;
@@ -118,39 +118,39 @@ namespace TransWriter
                             string translatedText = message.GetProperty("content").GetString();
 
                             translatedText = translatedText.Replace("\n", Environment.NewLine);
-                            // ½«·­Òë½á¹ûÏÔÊ¾µ½ EnglishText ÎÄ±¾¿òÖĞ
+                            // å°†ç¿»è¯‘ç»“æœæ˜¾ç¤ºåˆ° EnglishText æ–‡æœ¬æ¡†ä¸­
                             OriginalText.Text = translatedText;
 							Clipboard.SetText(translatedText);
 
-							// ±£´æÔ­ÎÄºÍÒëÎÄµ½±¾µØÊı¾İ¿â
+							// ä¿å­˜åŸæ–‡å’Œè¯‘æ–‡åˆ°æœ¬åœ°æ•°æ®åº“
 							SaveTranslationToDatabase(originalText, translatedText);
                         }
                         else
                         {
-                            MessageBox.Show("API ·µ»Ø½á¹ûÎŞĞ§¡£");
+                            MessageBox.Show("API è¿”å›ç»“æœæ— æ•ˆã€‚");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("µ÷ÓÃ·­Òë API ³ö´í£º" + ex.Message);
+                    MessageBox.Show("è°ƒç”¨ç¿»è¯‘ API å‡ºé”™ï¼š" + ex.Message);
                 }
             }
         }
 
         /// <summary>
-        /// Ê¹ÓÃ SQLite ½«·­Òë¼ÇÂ¼±£´æµ½±¾µØÊı¾İ¿â
+        /// ä½¿ç”¨ SQLite å°†ç¿»è¯‘è®°å½•ä¿å­˜åˆ°æœ¬åœ°æ•°æ®åº“
         /// </summary>
         private void SaveTranslationToDatabase(string originalText, string translatedText)
         {
-            // Êı¾İ¿âÎÄ¼şÂ·¾¶£¨³ÌĞò¸ùÄ¿Â¼ÏÂ translations.db£©
+            // æ•°æ®åº“æ–‡ä»¶è·¯å¾„ï¼ˆç¨‹åºæ ¹ç›®å½•ä¸‹ translations.dbï¼‰
             string connectionString = "Data Source=translations.db";
 
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
 
-                // ´´½¨Êı¾İ±í£¨Èç¹û²»´æÔÚ£©
+                // åˆ›å»ºæ•°æ®è¡¨ï¼ˆå¦‚æœä¸å­˜åœ¨ï¼‰
                 string createTableCmd = @"CREATE TABLE IF NOT EXISTS Translations (
                                             Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                             OriginalText TEXT,
@@ -163,7 +163,7 @@ namespace TransWriter
                     command.ExecuteNonQuery();
                 }
 
-                // ²åÈë¼ÇÂ¼
+                // æ’å…¥è®°å½•
                 string insertCmd = "INSERT INTO Translations (OriginalText, TranslatedText, CreatedAt) VALUES (@orig, @trans, @createdAt)";
                 using (var command = connection.CreateCommand())
                 {
@@ -178,9 +178,9 @@ namespace TransWriter
 
         #endregion
 
-        #region ´°Ìå¼°¿Ø¼ş³ß´çºÍÎ»ÖÃµ÷Õû
+        #region çª—ä½“åŠæ§ä»¶å°ºå¯¸å’Œä½ç½®è°ƒæ•´
 
-        // ´°Ìå¼ÓÔØÊ±£º½«×óÉÏ½ÇÎ»ÖÃÉèÖÃÎªÊó±êËùÔÚµÄÎ»ÖÃ£¬²¢·ÀÖ¹´°Ìå³¬³öÆÁÄ»±ßÔµ
+        // çª—ä½“åŠ è½½æ—¶ï¼šå°†å·¦ä¸Šè§’ä½ç½®è®¾ç½®ä¸ºé¼ æ ‡æ‰€åœ¨çš„ä½ç½®ï¼Œå¹¶é˜²æ­¢çª—ä½“è¶…å‡ºå±å¹•è¾¹ç¼˜
         private void TransForm_Load(object sender, EventArgs e)
         {
             SetWindowsPos();
@@ -205,22 +205,22 @@ namespace TransWriter
 
 		}
 
-        // ´°Ìå³ß´ç±ä»¯Ê±£¬µ÷ÕûÎÄ±¾¿òµÄ¿í¶È
+        // çª—ä½“å°ºå¯¸å˜åŒ–æ—¶ï¼Œè°ƒæ•´æ–‡æœ¬æ¡†çš„å®½åº¦
         private void TransForm_Resize(object sender, EventArgs e)
         {
             AdjustTextBoxWidths();
         }
 
         /// <summary>
-        /// ÉèÖÃÁ½¸öÎÄ±¾¿òµÄ¿í¶ÈÎª£º´°ÌåÄÚ¿í¶È - °´Å¥¿í¶È - 2 ÏñËØ
-        /// Í¬Ê±µ÷Õû°´Å¥µÄÎ»ÖÃÔÚ EnglishText ÎÄ±¾¿òµÄÓÒ²à
+        /// è®¾ç½®ä¸¤ä¸ªæ–‡æœ¬æ¡†çš„å®½åº¦ä¸ºï¼šçª—ä½“å†…å®½åº¦ - æŒ‰é’®å®½åº¦ - 2 åƒç´ 
+        /// åŒæ—¶è°ƒæ•´æŒ‰é’®çš„ä½ç½®åœ¨ EnglishText æ–‡æœ¬æ¡†çš„å³ä¾§
         /// </summary>
         private void AdjustTextBoxWidths()
         {
         }
 
         /// <summary>
-        /// µ±ÎÄ±¾¿òÎÄ×Ö¸Ä±äÊ±£¬×Ô¶¯µ÷Õû¸ß¶ÈÒÔÊÊÓ¦ÄÚÈİ
+        /// å½“æ–‡æœ¬æ¡†æ–‡å­—æ”¹å˜æ—¶ï¼Œè‡ªåŠ¨è°ƒæ•´é«˜åº¦ä»¥é€‚åº”å†…å®¹
         /// </summary>
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -228,7 +228,7 @@ namespace TransWriter
             {
                 AdjustTextBoxHeight(tb);
             }
-            // µ÷ÕûÍêÎÄ±¾¿ò¸ß¶Èºó£¬¼ì²éÊÇ·ñĞèÒªµ÷Õû´°Ìå¸ß¶È
+            // è°ƒæ•´å®Œæ–‡æœ¬æ¡†é«˜åº¦åï¼Œæ£€æŸ¥æ˜¯å¦éœ€è¦è°ƒæ•´çª—ä½“é«˜åº¦
             AdjustFormHeightToFitTextBoxes();
 
             if (OriginalText.Text == "")
@@ -242,17 +242,17 @@ namespace TransWriter
         }
 
         /// <summary>
-        /// ¸ù¾İÎÄ±¾ÄÚÈİ¼ÆËãËùĞè¸ß¶È£¬²¢µ÷ÕûÎÄ±¾¿ò¸ß¶È£¨ÕâÀï²ÉÓÃ TextRenderer.MeasureText ½øĞĞ¼òµ¥²âÁ¿£©
+        /// æ ¹æ®æ–‡æœ¬å†…å®¹è®¡ç®—æ‰€éœ€é«˜åº¦ï¼Œå¹¶è°ƒæ•´æ–‡æœ¬æ¡†é«˜åº¦ï¼ˆè¿™é‡Œé‡‡ç”¨ TextRenderer.MeasureText è¿›è¡Œç®€å•æµ‹é‡ï¼‰
         /// </summary>
         private void AdjustTextBoxHeight(TextBox tb)
         {
-            // ÏŞÖÆ×î´ó¸ß¶È£¬±ÜÃâÎŞÏŞÔö¸ß£¨¿É¸ù¾İĞèÒªµ÷Õû£©
+            // é™åˆ¶æœ€å¤§é«˜åº¦ï¼Œé¿å…æ— é™å¢é«˜ï¼ˆå¯æ ¹æ®éœ€è¦è°ƒæ•´ï¼‰
             int maxHeight = 300;
             Size proposedSize = new Size(tb.Width, int.MaxValue);
             Size textSize = TextRenderer.MeasureText(tb.Text, tb.Font, proposedSize, TextFormatFlags.WordBreak);
-            int newHeight = textSize.Height + 10; // ¼ÓÉÏÊÊµ±µÄÄÚ±ß¾à
+            int newHeight = textSize.Height + 10; // åŠ ä¸Šé€‚å½“çš„å†…è¾¹è·
 
-			// Èç¹ûÊÇ OriginalText£¬ÔòÈ·±£¸ß¶ÈÖÁÉÙÎª 120
+			// å¦‚æœæ˜¯ OriginalTextï¼Œåˆ™ç¡®ä¿é«˜åº¦è‡³å°‘ä¸º 120
 			if (tb == OriginalText)
 			{
 				newHeight = Math.Max(newHeight, 120);
@@ -263,7 +263,7 @@ namespace TransWriter
 
 
         /// <summary>
-        /// ¸ù¾İÁ½¸öÎÄ±¾¿òµÄ¸ß¶ÈºÍËüÃÇÔÚ´°ÌåÖĞµÄÎ»ÖÃµ÷Õû´°Ìå¸ß¶È£¬Ê¹ÄÚÈİÈ«²¿¿É¼û
+        /// æ ¹æ®ä¸¤ä¸ªæ–‡æœ¬æ¡†çš„é«˜åº¦å’Œå®ƒä»¬åœ¨çª—ä½“ä¸­çš„ä½ç½®è°ƒæ•´çª—ä½“é«˜åº¦ï¼Œä½¿å†…å®¹å…¨éƒ¨å¯è§
         /// </summary>
         private void AdjustFormHeightToFitTextBoxes()
         {
@@ -272,10 +272,10 @@ namespace TransWriter
 
         #endregion
 
-        #region ÍĞÅÌÍ¼±êºÍÈ«¾ÖÈÈ¼ü
+        #region æ‰˜ç›˜å›¾æ ‡å’Œå…¨å±€çƒ­é”®
 
         /// <summary>
-        /// ³õÊ¼»¯ÍĞÅÌÍ¼±ê£¬²¢Ìí¼Óµã»÷ÊÂ¼ş
+        /// åˆå§‹åŒ–æ‰˜ç›˜å›¾æ ‡ï¼Œå¹¶æ·»åŠ ç‚¹å‡»äº‹ä»¶
         /// </summary>
         private void SetupTrayIcon()
         {
@@ -284,14 +284,14 @@ namespace TransWriter
             notifyIcon.Text = "TransWriter";
             notifyIcon.Visible = true;
 
-            // ´´½¨ÉÏÏÂÎÄ²Ëµ¥
+            // åˆ›å»ºä¸Šä¸‹æ–‡èœå•
             ContextMenuStrip contextMenu = new ContextMenuStrip();
-            ToolStripMenuItem settingsMenuItem = new ToolStripMenuItem("ÉèÖÃ");
+            ToolStripMenuItem settingsMenuItem = new ToolStripMenuItem("è®¾ç½®");
             settingsMenuItem.Click += SettingsMenuItem_Click;
             contextMenu.Items.Add(settingsMenuItem);
 
-            // Ìí¼ÓÍË³ö²Ëµ¥Ïî
-            ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("ÍË³ö");
+            // æ·»åŠ é€€å‡ºèœå•é¡¹
+            ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("é€€å‡º");
             exitMenuItem.Click += ExitMenuItem_Click;
             contextMenu.Items.Add(exitMenuItem);
 
@@ -300,22 +300,22 @@ namespace TransWriter
         }
         private void ExitMenuItem_Click(object sender, EventArgs e)
         {
-            // ÍË³ö³ÌĞò
+            // é€€å‡ºç¨‹åº
             Application.Exit();
         }
         private void SettingsMenuItem_Click(object sender, EventArgs e)
         {
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.ShowDialog();
-            LoadApiKey(); // ÖØĞÂ¼ÓÔØ API Key
+            LoadApiKey(); // é‡æ–°åŠ è½½ API Key
         }
 
         /// <summary>
-        /// µ±ÍĞÅÌÍ¼±ê±»µã»÷Ê±£¬ÏÔÊ¾´°Ìå
+        /// å½“æ‰˜ç›˜å›¾æ ‡è¢«ç‚¹å‡»æ—¶ï¼Œæ˜¾ç¤ºçª—ä½“
         /// </summary>
         private void NotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            // ×ó¼üµ¥»÷ÏÔÊ¾´°Ìå
+            // å·¦é”®å•å‡»æ˜¾ç¤ºçª—ä½“
             if (e.Button == MouseButtons.Left)
             {
                 ShowForm();
@@ -324,13 +324,13 @@ namespace TransWriter
         }
 
         /// <summary>
-        /// ÏÔÊ¾´°Ìå£¨´ÓÍĞÅÌ»òÈÈ¼ü¼¤»î£©
+        /// æ˜¾ç¤ºçª—ä½“ï¼ˆä»æ‰˜ç›˜æˆ–çƒ­é”®æ¿€æ´»ï¼‰
         /// </summary>
         private void ShowForm()
         {
 			SetWindowsPos();
 			this.Show();
-            // Èç¹ûÖ®Ç°Òş²ØÁË£¬»Ö¸´Õı³£³ß´ç
+            // å¦‚æœä¹‹å‰éšè—äº†ï¼Œæ¢å¤æ­£å¸¸å°ºå¯¸
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -340,7 +340,7 @@ namespace TransWriter
             SetPlaceholderText();
         }
 
-		// ²¶»ñÈ«¾ÖÈÈ¼üÏûÏ¢
+		// æ•è·å…¨å±€çƒ­é”®æ¶ˆæ¯
 		protected override void WndProc(ref Message m)
         {
             if (m.Msg == WM_HOTKEY)
@@ -354,7 +354,7 @@ namespace TransWriter
             base.WndProc(ref m);
         }
 
-        // µ±ÓÃ»§µã»÷¹Ø±Õ°´Å¥Ê±£¬Òş²Ø´°Ìå¶ø²»ÊÇÍË³ö£¬ÍĞÅÌÍ¼±êÈÔÈ»´æÔÚ
+        // å½“ç”¨æˆ·ç‚¹å‡»å…³é—­æŒ‰é’®æ—¶ï¼Œéšè—çª—ä½“è€Œä¸æ˜¯é€€å‡ºï¼Œæ‰˜ç›˜å›¾æ ‡ä»ç„¶å­˜åœ¨
         private void TransForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -367,7 +367,7 @@ namespace TransWriter
             }
         }
 
-        // P/Invoke ×¢²á/×¢ÏúÈ«¾ÖÈÈ¼ü
+        // P/Invoke æ³¨å†Œ/æ³¨é”€å…¨å±€çƒ­é”®
         [DllImport("user32.dll")]
         private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
 
@@ -382,7 +382,7 @@ namespace TransWriter
             {
                 connection.Open();
 
-                // ´´½¨ Config ±í£¨Èç¹û²»´æÔÚ£©
+                // åˆ›å»º Config è¡¨ï¼ˆå¦‚æœä¸å­˜åœ¨ï¼‰
                 string createTableCmd = @"CREATE TABLE IF NOT EXISTS Config (
                                     Key TEXT PRIMARY KEY,
                                     Value TEXT
@@ -417,13 +417,13 @@ namespace TransWriter
 
         private void OriginalText_KeyDown(object sender, KeyEventArgs e)
         {
-            // ÅĞ¶ÏÊÇ·ñÍ¬Ê±°´ÏÂ Ctrl ºÍ Enter
+            // åˆ¤æ–­æ˜¯å¦åŒæ—¶æŒ‰ä¸‹ Ctrl å’Œ Enter
             if (e.Control && e.KeyCode == Keys.Enter)
             {
-                // ·ÀÖ¹ÔÚÎÄ±¾¿òÖĞ²åÈë»»ĞĞ
+                // é˜²æ­¢åœ¨æ–‡æœ¬æ¡†ä¸­æ’å…¥æ¢è¡Œ
                 e.SuppressKeyPress = true;
 
-                // ¼ì²éÊÇ·ñÔÚ¶ÌÊ±¼äÄÚÁ¬Ğø°´ÏÂÁ½´Î Ctrl + Enter
+                // æ£€æŸ¥æ˜¯å¦åœ¨çŸ­æ—¶é—´å†…è¿ç»­æŒ‰ä¸‹ä¸¤æ¬¡ Ctrl + Enter
                 if ((DateTime.Now - lastCtrlEnterTime).TotalMilliseconds < 500)
                 {
                     ctrlEnterCount++;
@@ -437,28 +437,28 @@ namespace TransWriter
 
                 if (ctrlEnterCount == 2)
                 {
-                    // ÖØÖÃ¼ÆÊıÆ÷
+                    // é‡ç½®è®¡æ•°å™¨
                     ctrlEnterCount = 0;
 
                     OriginalText.Clear();
 
-                    // ¹Ø±Õ´°¿Ú
+                    // å…³é—­çª—å£
                     this.Close();
                     SendKeys.Send("^v");
                 }
                 else
                 {
-                    // Ö´ĞĞ°´Å¥µã»÷ÊÂ¼ş
+                    // æ‰§è¡ŒæŒ‰é’®ç‚¹å‡»äº‹ä»¶
                     btnTranslate_Click(sender, e);
                 }
             }
-            // ÅĞ¶ÏÊÇ·ñÍ¬Ê±°´ÏÂ Ctrl ºÍ Backspace
+            // åˆ¤æ–­æ˜¯å¦åŒæ—¶æŒ‰ä¸‹ Ctrl å’Œ Backspace
             else if (e.Shift && e.KeyCode == Keys.Back)
             {
-                // ·ÀÖ¹ÔÚÎÄ±¾¿òÖĞÉ¾³ı×Ö·û
+                // é˜²æ­¢åœ¨æ–‡æœ¬æ¡†ä¸­åˆ é™¤å­—ç¬¦
                 e.SuppressKeyPress = true;
 
-                // ´ÓÊı¾İ¿âÖĞ¶ÁÈ¡×îºóÒ»Ìõ OriginalText ²¢¼ÓÔØµ½ OriginalText ÎÄ±¾¿òÖĞ
+                // ä»æ•°æ®åº“ä¸­è¯»å–æœ€åä¸€æ¡ OriginalText å¹¶åŠ è½½åˆ° OriginalText æ–‡æœ¬æ¡†ä¸­
                 LoadLastOriginalText();
             }
         }
@@ -479,7 +479,7 @@ namespace TransWriter
                     }
                     else
                     {
-                        MessageBox.Show("Êı¾İ¿âÖĞÃ»ÓĞÕÒµ½ÈÎºÎ¼ÇÂ¼¡£");
+                        MessageBox.Show("æ•°æ®åº“ä¸­æ²¡æœ‰æ‰¾åˆ°ä»»ä½•è®°å½•ã€‚");
                     }
                 }
             }
