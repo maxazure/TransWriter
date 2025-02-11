@@ -16,8 +16,8 @@ jobs:
 
     env:
       Solution_Name: TransWriter.sln
-      Wap_Project_Directory: TransWriter.Package
-      Wap_Project_Path: TransWriter.Package/TransWriter.Package.wapproj
+      Project_Directory: TransWriter/TransWriter
+      Project_Path: TransWriter/TransWriter/TransWriter.csproj
 
     steps:
     - name: Checkout Repository
@@ -40,13 +40,13 @@ jobs:
       run: msbuild $env:Solution_Name /p:Configuration=${{ matrix.configuration }}
 
     - name: Package Application
-      run: msbuild $env:Wap_Project_Path /p:Configuration=${{ matrix.configuration }} /p:AppxBundle=Always /p:AppxBundlePlatforms="x86|x64"
+      run: msbuild $env:Project_Path /p:Configuration=${{ matrix.configuration }} /p:AppxBundle=Always /p:AppxBundlePlatforms="x86|x64"
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}/AppPackages
+        name: Build Artifacts
+        path: ${{ env.Project_Directory }}/bin/${{ matrix.configuration }}
 
     - name: Create GitHub Release
       if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
@@ -54,4 +54,4 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         name: Release ${{ github.ref }}
-        files: ${{ env.Wap_Project_Directory }}/AppPackages/**/*.msix
+        files: ${{ env.Project_Directory }}/bin/${{ matrix.configuration }}/**/*
