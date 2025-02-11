@@ -1,4 +1,4 @@
-namespace TransWriter
+ï»¿namespace TransWriter
 {
     internal static class Program
     {
@@ -20,7 +20,7 @@ namespace TransWriter
             }
             else
             {
-                MessageBox.Show("³ÌĞòÒÑ¾­ÔÚÔËĞĞÖĞ¡£", "ÌáÊ¾", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ç¨‹åºå·²ç»åœ¨è¿è¡Œä¸­ã€‚", "æç¤º", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
