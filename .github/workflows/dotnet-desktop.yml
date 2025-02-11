@@ -16,8 +16,8 @@ jobs:
 
     env:
       Solution_Name: TransWriter.sln
-      Project_Directory: TransWriter/TransWriter
-      Project_Path: TransWriter/TransWriter/TransWriter.csproj
+      Project_Directory: .
+      Project_Path: TransWriter.csproj
 
     steps:
     - name: Checkout Repository
