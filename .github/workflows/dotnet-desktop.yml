@@ -16,8 +16,8 @@ jobs:
 
     env:
       Solution_Name: TransWriter.sln
-      Project_Directory: .
-      Project_Path: TransWriter.csproj
+      Project_Directory: TransWriter
+      Project_Path: TransWriter/TransWriter.csproj
 
     steps:
     - name: Checkout Repository
@@ -45,7 +45,7 @@ jobs:
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Build Artifacts
+        name: Build-Artifacts-${{ matrix.configuration }}-${{ github.run_number }}
         path: ${{ env.Project_Directory }}/bin/${{ matrix.configuration }}
 
     - name: Create GitHub Release
